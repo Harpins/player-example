@@ -5,11 +5,11 @@
   <title>Пример подключения плеера</title>
   <meta charset="utf-8">
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-  <link rel="icon" href="favicon.png">
+  <link rel="icon" href="favicon-32x32.png">
   <style type="text/css">
     .player-container {
-      width: 1000px;
-      height: 800px;
+      width: 800px;
+      height: 600px;
       background-color: black;
       box-shadow: 0 0 20px rgb(41, 2, 180);
       display: flex;
@@ -29,18 +29,10 @@
       align-items: stretch;
     }
 
-    .button-container {
+    .player-button {
       flex-basis: 40px;
-      flex-grow: 0;
       margin-left: 5px;
       margin-right: 5px;
-      display: flex;
-      align-items: stretch;
-    }
-
-
-    .player-button {
-      width: 100%;
       flex-grow: 0;
       border: none;
       cursor: pointer;
@@ -59,19 +51,12 @@
   <div id="player" class="player-container">
     <div class="js-video-container video-container"></div>
     <div class="button-panel">
-      <div id="play-pause" class="button-container">
-        <button class="js-play-button player-button"><i class="fa fa-play"></i></button>
-        <button class="js-pause-button player-button"><i class="fa fa-pause"></i></button>
-      </div>
-      <div id="mute-unmute" class="button-container">
-        <button class="js-mute-button player-button"><i class="fa fa-volume-up"></i></button>
-        <button class="js-volume-button player-button"><i class="fa fa-volume-off"></i></button>
-      </div>
-      <div class="empty-container">
-      </div>
-      <div id="fullscreen" class="button-container">
-        <button class="js-fullscreen-button player-button"><i class="fa fa-arrows"></i></button>
-      </div>
+      <button class="js-play-button player-button"><i class="fa fa-play"></i></button>
+      <button class="js-pause-button player-button"><i class="fa fa-pause"></i></button>
+      <button class="js-mute-button player-button"><i class="fa fa-volume-up"></i></button>
+      <button class="js-volume-button player-button"><i class="fa fa-volume-off"></i></button>
+      <div class="empty-container"></div>
+      <button class="js-fullscreen-button player-button"><i class="fa fa-arrows"></i></button>
     </div>
   </div>
 
