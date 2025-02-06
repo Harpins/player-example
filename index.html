@@ -5,13 +5,14 @@
   <title>Пример подключения плеера</title>
   <meta charset="utf-8">
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-  <link rel="icon" href="favicon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="favicon-32x32.png">
   <style type="text/css">
     .player-container {
       width: 800px;
       height: 600px;
       background-color: black;
-      box-shadow: 0 0 20px rgb(41, 2, 180);
+      box-shadow: 0 0 20px black;
       display: flex;
       flex-direction: column;
     }
@@ -21,7 +22,7 @@
     }
 
     .button-panel {
-      flex-basis: 40px;
+      flex-basis: 44px;
       background-color: black;
       flex-grow: 0;
       display: flex;
@@ -30,19 +31,62 @@
     }
 
     .player-button {
-      flex-basis: 40px;
-      margin-left: 5px;
-      margin-right: 5px;
+      flex-basis: 34px;
+      margin-left: 1px;
+      margin-right: 2px;
       flex-grow: 0;
       border: none;
       cursor: pointer;
       color: white;
-      font-size: 120%;
+      font-size: 125%;
       background-color: rgba(0, 0, 0, 0);
     }
 
-    .empty-container {
+    .player-button:focus {
+      outline: 0;
+    }
+
+    .progressbar-back {
+      display: flex;
+      align-items: center;
+      align-self: center;
+      height: 6px;
       flex-grow: 1;
+      background-color: black;
+      margin-left: 10px;
+      margin-right: 10px;
+      border-radius: 3px;
+    }
+
+    .progressbar-front {
+      background-color: #f8104d;
+      height: 100%;
+      border-radius: 3px;
+    }
+
+    .slider {
+      opacity: 0;
+      border: 3px solid;
+      border-color: white;
+      background-color: #f8104d;
+      border-radius: 50%;
+      width: 8px;
+      height: 8px;
+      margin-left: -7px;
+      transition-property: opacity;
+      transition-duration: 0.3s;
+      transition-timing-function: ease-in-out;
+    }
+
+    .progressbar-back:hover .slider {
+      cursor: pointer;
+      opacity: 1;
+    }
+
+    .timer {
+      color: white;
+      font-family: Roboto;
+      align-self: center;
     }
   </style>
 </head>
@@ -55,8 +99,13 @@
       <button class="js-pause-button player-button"><i class="fa fa-pause"></i></button>
       <button class="js-mute-button player-button"><i class="fa fa-volume-up"></i></button>
       <button class="js-volume-button player-button"><i class="fa fa-volume-off"></i></button>
-      <div class="empty-container"></div>
-      <button class="js-fullscreen-button player-button"><i class="fa fa-arrows"></i></button>
+      <span class="js-current-time timer"></span>
+      <div class="js-progress progressbar-back">
+        <div class="js-progress-slider progressbar-front"></div>
+        <div class="slider"></div>
+      </div>
+      <span class="js-duration timer"></span>
+      <button class="js-fullscreen-button player-button"><i class="fa fa-expand"></i></button>
     </div>
   </div>
 
